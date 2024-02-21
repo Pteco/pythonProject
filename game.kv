@@ -1,0 +1,14 @@
+
+<Screens>:
+    fullscreen: False
+    FloatLayout:
+        size_hint: 1, 1
+
+FloatLayout:
+
+    ScreenManager:
+        id: sm
+        on_current_screen:
+            idx = app.screen_names.index(args[1].name)
+            if idx > -1: app.hierarchy.append(args[1].name)
+            if idx > -1: app.direct.append(args[1].name)
