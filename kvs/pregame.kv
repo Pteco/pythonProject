@@ -1,0 +1,24 @@
+#:import SlideTransition kivy.uix.screenmanager.SlideTransition
+#:import Entry scr.pregame
+#:import AudBtn scr.cls2scr
+
+
+Screens:
+    name: 'PreGame'
+    fullscreen: False
+    ScreenManager:
+        id: scr_mgr
+        Screen:
+            name: 'entsph'
+            Entry:
+                id: entry
+                AudBtn:
+                    source: entry.entry['bts']['file']['on']
+                    size_hint: entry.entry['bts']['xyt']['size_hint']
+                    pos_hint: {'x': entry.entry['bts']['xyt']['pos_hint'][0], 'y': entry.entry['bts']['xyt']['pos_hint'][1]}
+                    on_release: app.go_screen('Game', direction='up')
+                AudBtn:
+                    source: entry.entry['bti']['file']['on']
+                    size_hint: entry.entry['bti']['xyt']['size_hint']
+                    pos_hint: {'x': entry.entry['bti']['xyt']['pos_hint'][0], 'y': entry.entry['bti']['xyt']['pos_hint'][1]}
+                    on_release: app.go_screen('GameSims', direction='up')

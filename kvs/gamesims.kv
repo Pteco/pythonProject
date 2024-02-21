@@ -1,0 +1,30 @@
+#:import SlideTransition kivy.uix.screenmanager.SlideTransition
+#:import GameSims scr.gamesims
+#:import AudBtn scr.cls2scr
+#:import Btn scr.game
+
+
+Screens:
+    name: 'GameSims'
+    fullscreen: False
+    ScreenManager:
+        id: scr_mgr
+        Screen:
+            name: 'card'
+            GameSims:
+                id: gms
+                btr: btr
+                Button:
+                    id: btr
+                    size_hint: gms.game['btn_return']['size_hint']
+                    pos_hint: {'x': gms.game['btn_return']['pos_hint'][0], 'y': gms.game['btn_return']['pos_hint'][1]}
+                    opacity: 0
+                    disabled: gms.disbtn
+                    on_release: app.go_hierarchy_previous()
+                AudBtn:
+                    source: gms.game['files']['btr']
+                    size_hint: gms.game['xyt']['btr']['size_hint']
+                    pos_hint: {'x': gms.game['xyt']['btr']['pos_hint'][0], 'y': gms.game['xyt']['btr']['pos_hint'][1]}
+                    on_release: app.go_hierarchy_previous()
+
+

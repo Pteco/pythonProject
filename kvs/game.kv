@@ -1,0 +1,30 @@
+#:import SlideTransition kivy.uix.screenmanager.SlideTransition
+#:import AudBtn scr.cls2scr
+#:import Gm scr.game
+#:import Btn scr.game
+
+Screens:
+    name: 'Game'
+    fullscreen: False
+    ScreenManager:
+        id: scr_mgr
+        Screen:
+            name: 'card'
+            Gm:
+                id: sph
+                btnsda: btnsda
+                Button:
+                    id: btnsda
+                    disabled: True
+                    opacity: 0
+                    size_hint: sph.popup['btn']['sda']['size_hint']
+                    pos_hint: {'x': sph.popup['btn']['sda']['pos_hint'][0], 'y': sph.popup['btn']['sda']['pos_hint'][1]}
+                    on_release:
+                        sph.act_sda()
+                        app.go_screen('PreGame', direction='down')
+                AudBtn:
+                    source: sph.file_btr
+                    size_hint: sph.xyt_btr['size_hint']
+                    pos_hint: {'x': sph.xyt_btr['pos_hint'][0], 'y': sph.xyt_btr['pos_hint'][1]}
+                    on_release: app.go_hierarchy_previous()
+
